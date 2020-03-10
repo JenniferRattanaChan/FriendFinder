@@ -1,6 +1,6 @@
   // LOAD DATA 
 
-const friendData = require("../data/friends.js");
+var friendData = require("../data/friends.js");
 
   // ROUTING
 
@@ -16,22 +16,22 @@ module.exports = function(app) {
 
   app.post("/api/friends", function(req, res) {
     
-    const name = req.body.name;
-    const photo = req.body.photo; 
-    const newScores = req.body.scores; 
-    const newEntry = {
+    var name = req.body.name;
+    var photo = req.body.photo; 
+    var newScores = req.body.scores; 
+    var newEntry = {
       "name": name,
       "photo": photo,
       "scores": []
     };
 
-    const newScoresArr = newEntry.scores;
+    var newScoresArr = newEntry.scores;
     newScores.forEach(function(index) {
       newScoresArr.push(parseInt(newScores[index]));
     });
     console.log(newScoresArr);
 
-    const scoreDiffArr = [];
+    var scoreDiffArr = [];
     for (let i = 0; i < friendData.length; i++) {
       let savedScores = friendData[i].scores; 
       let difference = 0;
